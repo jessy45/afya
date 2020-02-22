@@ -1,1 +1,19 @@
-<p>all-profiles works!</p>
+<p>LA LISTE DES PARTICIPANTS</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom & Prenom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let profile of profiles ; let i = index">
+            <td scope="col"></td>
+            <td>{{profile.nom}} {{profile.prenom}}</td>
+            <td>{{profile.adresse}}</td>
+            <td>{{profile.typeUser}}</td>
+        </tr>
+    </tbody>
+</table>

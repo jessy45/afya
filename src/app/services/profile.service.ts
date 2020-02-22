@@ -12,6 +12,7 @@ export class ProfileService {
   public profilelSubject = new Subject<Profile[]>();
 
   constructor() {
+    this.getProfiles();
   }
 
   emettreProfiles() {
@@ -48,5 +49,15 @@ export class ProfileService {
       }
     );
   }
-  
+
+  getProfiles() {
+    firebase.database().ref('/profiles').on(
+      'value',
+      (data: firebase.database.DataSnapshot) => {
+        this.profiles = data.val() ? data.val() : [];
+        this.emettreProfiles();
+      }
+    );
+  }
 }
+  
